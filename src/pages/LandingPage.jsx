@@ -77,6 +77,7 @@ export default function LandingPage() {
                 />
                 Sign in with Facebook
               </button>
+              <p>Don't have an account? <span className="text-blue-600"><Link to="/register">Sign Up</Link></span></p>
             </div>
           </div>
         </div>

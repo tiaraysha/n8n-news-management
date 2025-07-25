@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { API_URL } from "../constant";
 
 export default function NewsPage() {
@@ -44,13 +44,13 @@ export default function NewsPage() {
               className="w-5 h-5"
             />
           </button>
-          <button>
+          <Link to={"/profile"}>
             <img
               src="src/assets/images/account_circle.png"
               alt="notif"
               className="w-5 h-5"
             />
-          </button>
+          </Link>
         </div>
       </nav>
 
@@ -116,7 +116,8 @@ export default function NewsPage() {
             </div>
           ))}
           <div className="flex justify-end">
-            <button className="bg-[#C4E0E5] text-black rounded-full px-6 py-2 mt-3">
+            <button className="bg-[#C4E0E5] text-black rounded-full px-6 py-2 mt-3"
+              onClick={() => setKeywordModal(true)}>
               Send
             </button>
           </div>
@@ -142,7 +143,12 @@ export default function NewsPage() {
     </div>
 
     {keywordModal && (
-      <input type="text" />
+      <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+        <div className="bg-white rounded-xl p-8 w-[90%] max-w-md shadow-lg relative">
+          <label className="font-bold">Input Keyword</label>
+          <input type="text" className="px-4 py-2 border border-gray-300 rounded-full" />
+        </div>
+      </div>
     )}
     </>
   );
